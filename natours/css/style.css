@@ -7,19 +7,31 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Bordas não seráo incluids na altura e largura totais */
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 10/ 16 0.625 * 16 px 
+  (font-size default) = 10px que nós queremos */
+  /* font-size: 10px <--> Com o font-size de
+  nosso documento sendo 10px, 1rem = 10px
+  (Igual ao font-size do nosso
+  root). */
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7; /* 1.7x maior que o line-height pré definido */
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box; /* Bordas não serão incluídas na altura e largura totais */
 }
 
 .header {
@@ -37,17 +49,17 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 48px;
-  left: 48px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -58,17 +70,16 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-
   backface-visibility: hidden; /* Evita o 'shaking' dos elementos com animatiob, um comportamento não
   muito claro */
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   /*  Com display block o elemento vai ocupar todo o espaço disponível*/
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-in; /* Inicia rápido e termina devagar, oposto de ease-out */
@@ -76,22 +87,22 @@ body {
   animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -103,11 +114,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -119,7 +130,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -133,27 +144,28 @@ body {
   /* :visited - Tom roxo em links depois de visitados */
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
-  margin-top: 60px;
+  font-size: 1.6rem;
+  padding: 1.5rem 4rem;
+  margin-top: 6rem;
   display: inline-block; /* Display inline-block é
   util quando queremos  ter um elemento com características de display inline como ocupação do espaço apenas do seu conteudo, mas queremos acrescentar algumas propriedades de display block, como margin, padding, etc... Que só funcionam em
   elementos com display block */
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative; /* Para ser relatio para nosso btn::after e btn-white::after */
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -163,7 +175,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -171,7 +183,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -180,7 +192,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* 'animation-fill-mode: backwards' para deixar o 
