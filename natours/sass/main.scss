@@ -1,62 +1,76 @@
-@charset "UTF-8";
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 html {
-  font-size: 62.5%;
-  /* 10/ 16 0.625 * 16 px 
+  font-size: 62.5%; /* 10/ 16 0.625 * 16 px 
   (font-size default) = 10px que nós queremos */
   /* font-size: 10px <--> Com o font-size de
   nosso documento sendo 10px, 1rem = 10px
   (Igual ao font-size do nosso
-  root). */ }
+  root). */
+}
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
-  line-height: 1.7;
-  /* 1.7x maior que o line-height pré definido */
-  color: #777;
+  line-height: 1.7; /* 1.7x maior que o line-height pré definido */
+  color: $color-grey-dark;
   padding: 3rem;
-  box-sizing: border-box;
-  /* Bordas não serão incluídas na altura e largura totais */ }
+  box-sizing: border-box; /* Bordas não serão incluídas na altura e largura totais */
+}
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg);
-  background-size: cover;
-  /* Ajusta o elemento
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.6),
+      rgba($color-primary-dark, 0.6)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover; /* Ajusta o elemento
   para 'caber' na tela */
   background-position: top;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 .header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
-  backface-visibility: hidden;
-  /* Evita o 'shaking' dos elementos com animatiob, um comportamento não
-  muito claro */ }
+  backface-visibility: hidden; /* Evita o 'shaking' dos elementos com animatiob, um comportamento não
+  muito claro */
+}
 
 .heading-primary--main {
   display: block;
@@ -66,45 +80,62 @@ body {
   letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
-  animation-timing-function: ease-in;
-  /* Inicia rápido e termina devagar, oposto de ease-out */
+  animation-timing-function: ease-in; /* Inicia rápido e termina devagar, oposto de ease-out */
   /*  animation-iteration-count: 3;
-  animation-delay: 3s; */ }
+  animation-delay: 3s; */
+}
 
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  animation: moveInRight 1s ease-out;
+}
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   80% {
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 .btn:link,
 .btn:visited {
@@ -114,26 +145,28 @@ body {
   font-size: 1.6rem;
   padding: 1.5rem 4rem;
   margin-top: 6rem;
-  display: inline-block;
-  /* Display inline-block é
+  display: inline-block; /* Display inline-block é
   util quando queremos  ter um elemento com características de display inline como ocupação do espaço apenas do seu conteudo, mas queremos acrescentar algumas propriedades de display block, como margin, padding, etc... Que só funcionam em
   elementos com display block */
   border-radius: 10rem;
   transition: all 0.2s;
-  position: relative;
-  /* Para ser relatio para nosso btn::after e btn-white::after */ }
+  position: relative; /* Para ser relatio para nosso btn::after e btn-white::after */
+}
 
 .btn:hover {
   transform: translateY(-0.3rem);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
 .btn:active {
   transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
 
 .btn::after {
   content: "";
@@ -144,19 +177,22 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  /* Atrás do botão */
-  transition: all 0.4s; }
+  z-index: -1; /* Atrás do botão */
+  transition: all 0.4s;
+}
 
 .btn--white::after {
-  background-color: #fff; }
+  background-color: $color-white;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* 'animation-fill-mode: backwards' para deixar o 
-  botão invisíbel antes da animação */ }
+  botão invisíbel antes da animação */
+}
