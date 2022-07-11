@@ -5,6 +5,22 @@
   padding: 0;
   box-sizing: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-primary-dark;
+  border: 1px solid $color-primary-dark;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+}
+
 html {
   font-size: 62.5%; /* 10/ 16 0.625 * 16 px 
   (font-size default) = 10px que nós queremos */
@@ -16,4 +32,6 @@ html {
 
 body {
   box-sizing: border-box; /* Bordas não serão incluídas na altura e largura totais */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
