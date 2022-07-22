@@ -2,18 +2,19 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
-@import "base/base";
 @import "base/animations";
+@import "base/base";
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/bg-video";
 @import "components/buttons";
+@import "components/card";
 @import "components/composition";
 @import "components/feature-box";
-@import "components/card";
 @import "components/story";
 
-@import "layouts/header";
 @import "layouts/grid";
+@import "layouts/header";
 
 @import "pages/home";
