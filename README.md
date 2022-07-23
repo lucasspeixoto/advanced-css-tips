@@ -6,7 +6,7 @@
 
 ## 💻 Projeto Natours
 
-![interface](assets/natours.gif "Layout")
+![interface](natours/assets/natours.gif "Layout")
 
 ```bash
 # Clone o repositório e entre na pasta do projeto
