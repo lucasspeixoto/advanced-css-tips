@@ -1,6 +1,8 @@
 .btn {
+  &,
   &:link,
   &:visited {
+    //link and visited = pseudo classes
     /* :visited - Tom roxo em links depois de visitados */
     text-transform: uppercase;
     text-decoration: none;
@@ -13,6 +15,9 @@
     border-radius: 10rem;
     transition: all 0.2s;
     position: relative; /* Para ser relatio para nosso btn::after e btn-white::after */
+
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -25,8 +30,10 @@
     }
   }
 
-  &:active {
-    transform: translateY(-0.1rem);
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
