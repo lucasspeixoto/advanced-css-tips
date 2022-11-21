@@ -16,8 +16,7 @@ $ git clone https://github.com/lucasspeixoto/advanced-css-tips.git && cd advance
 $ npm install
 
 # Execute a aplicação
-$ npm run compile:sass
-$ run on server index.html
+$ npm run start
 
 # Abra http://127.0.0.1:5500/natours/index.html no seu navegador para ver a aplicação rodando!
 ```
