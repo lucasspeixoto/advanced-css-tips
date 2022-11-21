@@ -6,21 +6,6 @@
   box-sizing: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $color-primary-dark;
-  border: 1px solid $color-primary-dark;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: $color-primary;
-  border: 1px solid $color-primary;
-}
-
 html {
   /* O font-size defini o valor de 1rem
     1rem = (62.5/100) * 16px = 10px
@@ -59,4 +44,24 @@ body {
   @include respond(tab-port) {
     padding: 0;
   }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-primary-dark;
+  border: 1px solid $color-primary-dark;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
 }
