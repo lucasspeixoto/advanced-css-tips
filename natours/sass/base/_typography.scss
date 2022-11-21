@@ -2,15 +2,17 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
-  line-height: 1.7; /* 1.7x maior que o line-height pré definido */
+  line-height: 1.7;
+  /* 1.7x maior que o line-height pré definido */
   color: $color-grey-dark;
-  padding: 3rem;
 }
 
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  backface-visibility: hidden; /* Evita o 'shaking' dos elementos com animatiob, um comportamento não
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Evita o 'shaking' dos elementos com animation, um comportamento não
   muito claro */
 
   &--main {
@@ -21,17 +23,28 @@ body {
     letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
-    animation-timing-function: ease-in; /* Inicia rápido e termina devagar, oposto de ease-out */
+    animation-timing-function: ease-in;
+    /* Inicia rápido e termina devagar, oposto de ease-out */
     /*  animation-iteration-count: 3;
     animation-delay: 3s; */
+
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
   }
 
   &--sub {
+    margin-bottom: 10rem;
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -45,10 +58,19 @@ body {
     $color-primary-dark
   );
   display: inline-block;
+  background-clip: text;
   -webkit-background-clip: text;
   letter-spacing: 0.2rem;
   color: transparent;
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 2.5rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);

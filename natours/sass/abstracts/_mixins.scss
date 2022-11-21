@@ -12,3 +12,54 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// Media Query Manager
+/*
+0 - 600px:       Phone
+600 - 900px:     Tablet portrait
+900 - 1200px:    Tablet landscape
+[1200 - 1800px]: Is where our normal styles apply
+1800px + :       Big desktop
+
+$breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+
+Ordem: Base + Typography > General layout + grid > Page layout > Components
+
+Em media query, 1rem = 1em = 16px (Default do brownser)
+Em alguns brownsers o rem pode apresentar (falhas),
+alguns problemas 
+
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint ==phone {
+    //600px
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==tab-port {
+    //900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==tab-land {
+    //1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==big-desktop {
+    //1800
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

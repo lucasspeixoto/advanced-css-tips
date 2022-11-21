@@ -8,13 +8,14 @@
     text-decoration: none;
     font-size: $default-font-size;
     padding: 1.5rem 4rem;
-    margin-top: 6rem;
-    display: inline-block; /* Display inline-block é
+    display: inline-block;
+    /* Display inline-block é
     util quando queremos  ter um elemento com características de display inline como ocupação do espaço apenas do seu conteudo, mas queremos acrescentar algumas propriedades de display block, como margin, padding, etc... Que só funcionam em
     elementos com display block */
     border-radius: 10rem;
     transition: all 0.2s;
-    position: relative; /* Para ser relatio para nosso btn::after e btn-white::after */
+    position: relative;
+    /* Para ser relatio para nosso btn::after e btn-white::after */
 
     border: none;
     cursor: pointer;
@@ -64,7 +65,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1; /* Atrás do botão */
+    z-index: -1;
+    /* Atrás do botão */
     transition: all 0.4s;
   }
 

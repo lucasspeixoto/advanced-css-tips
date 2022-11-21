@@ -22,16 +22,41 @@
 }
 
 html {
-  font-size: 62.5%; /* 10/ 16 0.625 * 16 px 
-  (font-size default) = 10px que nós queremos */
-  /* font-size: 10px <--> Com o font-size de
-  nosso documento sendo 10px, 1rem = 10px
-  (Igual ao font-size do nosso
-  root). */
+  /* O font-size defini o valor de 1rem
+    1rem = (62.5/100) * 16px = 10px
+    16px = font-size default do brownser
+   */
+
+  font-size: 62.5%; //1rem = 10px; 10/16 = 65.5%
+
+  @include respond(phone) {
+    font-size: 30%; //1rem = 4.8px; 4.8/16 = 30%
+  }
+
+  @include respond(tab-land) {
+    //width <1200px?
+    font-size: 56.25%; //1rem = 9px; 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    //width < 900px?
+    font-size: 50%; //1rem = 8px; 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    //width > 1800px
+    font-size: 80%; //1rem = 12px; 12/16 = 75%
+  }
 }
 
 body {
-  box-sizing: border-box; /* Bordas não serão incluídas na altura e largura totais */
+  box-sizing: border-box;
+  /* Bordas não serão incluídas na altura e largura totais */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

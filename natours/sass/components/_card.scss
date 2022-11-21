@@ -11,6 +11,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 3px;
@@ -30,6 +31,7 @@
           $color-secondary-dark
         );
       }
+
       &-2 {
         background-image: linear-gradient(
           to right bottom,
@@ -37,6 +39,7 @@
           $color-primary-dark
         );
       }
+
       &-3 {
         background-image: linear-gradient(
           to right bottom,
@@ -50,6 +53,7 @@
   &:hover &__side--front {
     transform: rotateY(-180deg);
   }
+
   &:hover &__side--back {
     transform: rotateY(0);
   }
@@ -72,6 +76,7 @@
         ),
         url(../img/nat-5.jpg);
     }
+
     &--2 {
       background-image: linear-gradient(
           to right bottom,
@@ -80,6 +85,7 @@
         ),
         url(../img/nat-6.jpg);
     }
+
     &--3 {
       background-image: linear-gradient(
           to right bottom,
@@ -173,5 +179,50 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    //Back Side Stylings
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 0rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }
